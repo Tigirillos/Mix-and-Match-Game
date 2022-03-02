@@ -1,0 +1,204 @@
+/* Import Google Font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Caveat', sans-serif;
+}
+h1 {
+    position: absolute;
+    width: 500px;
+    border-radius: 25px;
+    text-align: center;
+    padding: 0px 30px;
+    top: 50px;
+    color:  #ebc3dd;
+    font-size: 60px;
+    font-weight: 700;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: url(/images/Background.png);
+}
+::selection{
+    color: #ffffff;
+    background: #ebc3dd;
+}
+.wrapper{
+    height: 600px;
+    width: 600px;
+    padding: 25px;
+    border-radius: 25px;
+}
+.cards, .card, .view, .details, p{
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+.cards{
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.cards .card {
+    cursor: pointer;
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    height: calc(100% / 4 - 10px);
+    width: calc(100% / 4 - 10px);
+}
+.card.shake {
+    animation: shake 0.35s ease-in-out;
+}
+@keyframes shake {
+    0%, 100%{
+        transform: translateX(0);
+    }
+    20%{
+        transform: translateX(-10px);
+    }
+    40%{
+        transform: translateX(10px);
+    }
+    60%{
+        transform: translateX(-5px);
+    }
+    80%{
+        transform: translateX(5px);
+    }
+}
+.cards .card .view {
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    pointer-events: none;
+    position: absolute;
+    background:  #ebdce6;
+    border-radius: 25px;
+    backface-visibility: hidden;
+    transition: transform 0.25s linear;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+}
+.card .front-view img {
+    max-width: 100px;
+    border-radius: 15px;
+}
+.card .back-view {
+    transform: rotateY(-180deg);
+}
+.card .back-view img {
+    max-width: 100px;
+    border-radius: 15px;
+}
+.card.flip .front-view {
+    transform: rotateY(180deg);
+}
+.card.flip .back-view{
+    transform: rotateY(0);
+}
+.details{
+    width: 100%;
+    margin-top: 5px;
+    padding: 0 15px;
+    border-radius: 25px;
+    /* background: #fff; */
+    height: 85px;
+    justify-content: space-between;
+    box-shadow: 0 8px 10px rgba(0,0,0,0.1);
+}
+.details p{
+font-size: 40px;
+font-weight: 700;
+height: 17px;
+padding-right: 18px;
+border-right: 1px solid #ccc;
+color: #ebc3dd;
+}
+.details p span{
+margin-left: 8px;
+}
+.details p b{
+font-weight: 500;
+}
+.details button{
+cursor: pointer;
+font-size: 40px;
+font-weight: 700;
+color: #ffffff;
+border-radius: 15px;
+padding: 4px 11px;
+background: #ebc3dd;
+border: 2px solid #f8f8f8;
+transition: 0.3s ease;
+}
+.details button:hover{
+    color: #ebc3dd;
+    background: #ffffff;
+}
+
+audio {
+    position: absolute;
+    bottom: 15px;
+    align-items: center;
+    width: 500px;
+    height: 40px;
+}
+audio:hover {
+    filter: drop-shadow(2px 3px 3px #333);}
+
+audio::-webkit-media-controls-panel{
+    background-color: #ebc3dd;
+    border-radius: 25px;
+    size: 50%;
+}
+@media screen and (max-width: 992px) {
+    .cards .card .view {
+        width: 90%;
+        height: 90%;
+        user-select: none;
+        pointer-events: none;
+        position: absolute;
+        background:  #ebdce6;
+        border-radius: 25px;
+        backface-visibility: hidden;
+        transition: transform 0.25s linear;
+        box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+    }
+    .card .front-view img {
+        max-width:90px;
+        border-radius: 15px;
+    }
+    .card .back-view img {
+        max-width: 90px;
+        border-radius: 15px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .cards .card .view {
+        width: 100%;
+        height: 80%;
+    }
+    .card .front-view img {
+        max-width: 80px;
+        border-radius: 15px;
+    }
+    .card .back-view img {
+        max-width: 80px;
+        border-radius: 15px;
+    }
+    audio {
+        width: 400px;
+        height: 40px;
+    }
+    h1 {    
+        width: 400px;
+    }
+
+}
